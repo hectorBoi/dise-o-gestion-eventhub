@@ -1,0 +1,156 @@
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Mis Eventos Recientes</h1>
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card bg-primary text-white mb-4">
+                        <div class="card-header">
+                            Nuevo Evento
+                        </div>
+                        <div class="card-body">
+                            <img src="../../assets/img/add-button.webp" class="card-img-top" alt="...">
+                            <a href="#" class="stretched-link" data-bs-toggle="modal" data-bs-target="#new-event-modal"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="new-event-modal" tabindex="-1" aria-labelledby="new-event-modal-label"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="new-event-modal-label">Nuevo Evento</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Cancelar"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="inputName" class="form-label">Nombre del Evento</label>
+                                        <input type="text" class="form-control" id="inputName">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputType" class="form-label">Tipo del Evento</label>
+                                        <input type="text" class="form-control" id="inputType" placeholder="e.g. Boda">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputDate" class="form-label">Date   </label>
+                                        <input type="date" id="inputDate" name="trip-start" value="2024-04-27" min="2024-04-27" max="2026-04-27" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                            Boda
+                        </div>
+                        <img src="../../assets/img/wedding.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Boda de Pablo y Julia</h5>
+                            <div class="d-grid justify-content-md-end">
+                                <a href="#" class="btn btn-secondary">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fa-solid fa-cake-candles"></i>
+                            Cumpleaños
+                        </div>
+                        <img src="../../assets/img/birthday.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Cumpleaños de Ana</h5>
+                            <div class="d-grid justify-content-md-end">
+                                <a href="#" class="btn btn-secondary">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            Graduación
+                        </div>
+                        <img src="../../assets/img/event.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Graduacion Preparatoria n°5</h5>
+                            <div class="d-grid justify-content-md-end">
+                                <a href="#" class="btn btn-secondary">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="mt-4">Todos mis Eventos</h1>
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    All Events
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Tipo</th>
+                                <th>Fecha</th>
+                                <th>Costo Actual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Boda Pablo y Julia</th>
+                                <th>Boda</th>
+                                <th>17/09/2025</th>
+                                <th>$50,799</th>
+                            </tr>
+                            <tr>
+                                <th>Cu9mpleaños Ana</th>
+                                <th>Fiesta Cumpleaños</th>
+                                <th>15/06/2024</th>
+                                <th>$5,000</th>
+                            </tr>
+                            <tr>
+                                <th>Graduación Preparatoria n°5</th>
+                                <th>Graduación</th>
+                                <th>30/06/2024</th>
+                                <th>60,000</th>
+                            </tr>
+                            <tr>
+                                <th>Reunion Ramirez</th>
+                                <th>Fiesta</th>
+                                <th>25/10/2024</th>
+                                <th>$7,299</th>
+                            </tr>
+                            <tr>
+                                <th>Bautizo Memito</th>
+                                <th>Fiesta</th>
+                                <th>30/11/2024</th>
+                                <th>$15,349</th>
+                            </tr>
+                            <tr>
+                                <th>Boda Mariana y Ernesto</th>
+                                <th>Boda</th>
+                                <th>31/08/2025</th>
+                                <th>$150,899</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>

@@ -1,0 +1,45 @@
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Main</div>
+                    <a class="nav-link" href="index.html">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
+                        Home
+                    </a>
+                    <div class="sb-sidenav-menu-heading">Servicio</div>
+                    <a class="nav-link" href="service-place">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                        Lugar de Evento
+                    </a>
+                    <a class="nav-link" href="service-music">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-music"></i></div>
+                        Musica
+                    </a>
+                    <a class="nav-link" href="service-food">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-utensils"></i></div>
+                        Alimentos
+                    </a>
+                    <div class="sb-sidenav-menu-heading">Tus Eventos</div>
+                    <a class="nav-link" href="/">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                        Eventos
+                    </a>
+                    <a class="nav-link" href="/" data-bs-toggle="modal" data-bs-target="#new-event-modal">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Nuevo Evento
+                    </a>
+                </div>
+            </div>
+            <div class="sb-sidenav-footer">
+                <div class="small">Logged in as:</div>
+                Chino Moreno
+            </div>
+        </nav>
+    </div>
+    <!--
+        Content Of page goes here:
+    -->
+    <router-outlet></router-outlet>
+</div>
