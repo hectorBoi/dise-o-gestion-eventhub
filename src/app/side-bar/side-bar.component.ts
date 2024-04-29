@@ -5,6 +5,7 @@ import { ServicePlaceSearchComponent } from '../service-place-search/service-pla
 import { ServiceMusicSearchComponent } from '../service-music-search/service-music-search.component';
 import { ServiceFoodSearchComponent } from '../service-food-search/service-food-search.component';
 import { RouterOutlet } from '@angular/router';
+import { ServiceDetailComponent } from '../service-detail/service-detail.component';
 
 @Component({
   selector: 'app-side-bar',
@@ -15,7 +16,8 @@ import { RouterOutlet } from '@angular/router';
     EventComponent, 
     ServicePlaceSearchComponent, 
     ServiceMusicSearchComponent, 
-    ServiceFoodSearchComponent
+    ServiceFoodSearchComponent,
+    ServiceDetailComponent
   ],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css'
