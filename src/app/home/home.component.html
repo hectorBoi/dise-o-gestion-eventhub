@@ -21,73 +21,42 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="new-event-modal-label">Nuevo Evento</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Cancelar"></button>
+                                
                             </div>
                             <div class="modal-body">
-                                <form class="row g-3">
+                                <form class="row g-3" (ngSubmit)="createEvent()">
                                     <div class="col-md-6">
                                         <label for="inputName" class="form-label">Nombre del Evento</label>
-                                        <input type="text" class="form-control" id="inputName">
+                                        <input type="text" name="eventName" class="form-control" placeholder="Bautismo Daniel" [(ngModel)]="newEvent.name"/>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputType" class="form-label">Tipo del Evento</label>
-                                        <input type="text" class="form-control" id="inputType" placeholder="e.g. Boda">
+                                        <input type="text" name="eventType" class="form-control" placeholder="e.g. Boda" [(ngModel)]="newEvent.type"/>                                                                    
                                     </div>
                                     <div class="col-12">
-                                        <label for="inputDate" class="form-label">Date   </label>
-                                        <input type="date" id="inputDate" name="trip-start" value="2024-04-27" min="2024-04-27" max="2026-04-27" />
+                                        <label for="inputDate" class="form-label">Date</label>
+                                        <input type="date" id="inputDate" name="trip-start"  [(ngModel)]="newEvent.date" />
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary" >Save changes</button>
                                     </div>
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6">
+                <div class="col-xl-3 col-md-6" *ngFor="let evento of recientesEventos">
                     <div class="card mb-4">
                         <div class="card-header">
-                            <i class="fa-solid fa-champagne-glasses"></i>
-                            Boda
+                            {{evento.type}}
                         </div>
-                        <img src="../../assets/img/wedding.jpg" class="card-img-top" alt="...">
+                        <img src="../../assets/img/placeholder.png" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Boda de Pablo y Julia</h5>
+                            <h5 class="card-title">{{evento.name}}</h5>
                             <div class="d-grid justify-content-md-end">
-                                <a href="event" class="btn btn-secondary">Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fa-solid fa-cake-candles"></i>
-                            Cumpleaños
-                        </div>
-                        <img src="../../assets/img/birthday.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Cumpleaños de Ana</h5>
-                            <div class="d-grid justify-content-md-end">
-                                <a href="event" class="btn btn-secondary">Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                            Graduación
-                        </div>
-                        <img src="../../assets/img/event.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Graduacion Preparatoria n°5</h5>
-                            <div class="d-grid justify-content-md-end">
-                                <a href="event" class="btn btn-secondary">Edit</a>
+                                <a routerLink="event/{{evento.id}}" class="btn btn-secondary">Edit</a>
                             </div>
                         </div>
                     </div>
@@ -95,12 +64,8 @@
             </div>
             <h1 class="mt-4">Todos mis Eventos</h1>
             <div class="card mb-4">
-                <div class="card-header">
-                    <i class="fas fa-table me-1"></i>
-                    All Events
-                </div>
                 <div class="card-body">
-                    <table id="datatablesSimple">
+                    <table class="table ">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
@@ -110,41 +75,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>Boda Pablo y Julia</th>
-                                <th>Boda</th>
-                                <th>17/09/2025</th>
-                                <th>$50,799</th>
-                            </tr>
-                            <tr>
-                                <th>Cumpleaños Ana</th>
-                                <th>Fiesta Cumpleaños</th>
-                                <th>15/06/2024</th>
-                                <th>$5,000</th>
-                            </tr>
-                            <tr>
-                                <th>Graduación Preparatoria n°5</th>
-                                <th>Graduación</th>
-                                <th>30/06/2024</th>
-                                <th>60,000</th>
-                            </tr>
-                            <tr>
-                                <th>Reunion Ramirez</th>
-                                <th>Fiesta</th>
-                                <th>25/10/2024</th>
-                                <th>$7,299</th>
-                            </tr>
-                            <tr>
-                                <th>Bautizo Memito</th>
-                                <th>Fiesta</th>
-                                <th>30/11/2024</th>
-                                <th>$15,349</th>
-                            </tr>
-                            <tr>
-                                <th>Boda Mariana y Ernesto</th>
-                                <th>Boda</th>
-                                <th>31/08/2025</th>
-                                <th>$150,899</th>
+                            <tr *ngFor="let evento of todosEventos">
+                                <th>{{evento.name}}</th>
+                                <th>{{evento.type}}</th>
+                                <td>{{evento.date | date:'yyyy-MM-dd'}}</td>
+                                <th>{{evento.actualCost}}</th>
                             </tr>
                         </tbody>
                     </table>

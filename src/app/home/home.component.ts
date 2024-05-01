@@ -1,12 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Event } from '../event/model/Event';
+import { EventService } from '../event/event.service';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { SourceTextModule } from 'vm';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [ CommonModule, FormsModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent  implements OnInit{
+  todosEventos : Event[] = [];
+  recientesEventos : Event[] = [];
+  constructor(private eventService : EventService) {}
+  
+  ngOnInit(): void {
+    this.eventService.findAllEvents().subscribe(events => {
+      this.todosEventos = events;
+      this.recientesEventos = this.getRecentEvents(events);
+    });
+  
+  };
+  newEvent : Event = new Event("", new Date(), "", 0);
+  createEvent() : void {
+    const date = new Date(this.newEvent.date);
+    this.newEvent.date = date;
+    this.eventService.createEvent(this.newEvent).subscribe(event => {
+      this.todosEventos = [...this.todosEventos, event];
+      this.recientesEventos = this.getRecentEvents(this.todosEventos);
+      console.log("Todos eventos:");
+      console.log(this.todosEventos);
 
+    });
+    
+    
+    
+  };
+  private getRecentEvents(events: Event[]): Event[] {
+
+    return events.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3);
+  }
+
+  
+ 
 }

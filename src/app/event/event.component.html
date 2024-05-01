@@ -1,97 +1,51 @@
 <div id="layoutSidenav_content">
     <div class="container-fluid px-4">
-        <h1>XV años María</h1>
+        <h1>{{thisEvent.name}}</h1>
 
         <h2></h2>
         <div class="row">
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary text-white mb-4">
+            <div class="col-xl-6">
+                <div class="card mb-4">
                     <div class="card-header">
-                        Añadir Servicio
+                        Event Information
                     </div>
                     <div class="card-body">
-                        <img src="../../assets/img/add-button.webp" class="card-img-top" alt="...">
+                        <h5 class="card-title">Tipo : {{ thisEvent.type }}</h5>
                     </div>
-                    <a href="service-place" class="stretched-link"></a>
                 </div>
             </div>
         </div>
+
 
         <div id="date-picker" class="row">
             <h2>
                 <label class="col-1 col-form-label">Fecha</label>
             </h2>
             <div class="col-xl-6">
-                <input type="date" id="start" name="trip-start" value="2024-04-27" min="2024-04-27" max="2026-04-27" />
+                <input type="text" class="form-control" disabled [value]="thisEvent.date">
             </div>
         </div>
         <h2>Tus Servicios</h2>
         <div class="row" id="services-row">
-            <div class="col-xl-6">
+            <div class="col-xl-6" *ngFor="let service of services">
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fa-solid fa-music me-1"></i>
-                        Music Service
+                        {{ service.type }}
                     </div>
-                    <img src="../../assets/img/DJ-Jockey.jpeg" class="card-img-top" alt="...">
+                    <img src="../../assets/img/placeholder-image.jpg" class="card-img-top" alt="..." >
                     <div class="card-body">
-                        <h5 class="card-title">DJ Koolio</h5>
-                        <p class="card-text">DJ Service, includes the audio equipement as well as lighting for the danceflor</p>
-                        <h6>$6,000 MXN</h6>
+                        <h5 class="card-title">{{ service.name}}</h5>
+                        <p class="card-text">{{ service.description }}</p>
+                        <h6>${{ service.price }}</h6>
                         <div class="d-grid justify-content-md-end">
-                            <a href="#" class="btn btn-danger" >Remove</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xl-6">
-                <div class="card mb-4">
-                    <div class="card-header">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                        Venue
-                    </div>
-                    <img src="../../assets/img/salon-girasoles.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Salon los Girasoles</h5>
-                        <p class="card-text">Salon social con capacidad para 100 asistentes. Tiene pista de baile y servicio de catering.</p>
-                        <h6>$20,700 MXN</h6>
-                        <div class="d-grid justify-content-md-end">
-                            <a href="#" class="btn btn-danger">Remove</a>
+                            <button class="btn btn-danger" (click)="removeService(service.id)">Remove</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <h2>
-            <i class="fa-solid fa-money-check-dollar"></i>  Pricing
-        </h2>
-
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th scope="row">DJ Koolio</th>
-                    <td> $6,000</td>
-                </tr>
-                <tr>
-                    <th scope="row">Salon los Girasoles</th>
-                    <td> $20,700</td>
-                </tr>
-                <tr>
-                    <th scope="row">Fees & Taxes</th>
-                    <td> $2600</td>
-                </tr>
-            </tbody>
-
-            <tfoot class="table-light">
-                <tr>
-                    <th scope="row">Total Due</th>
-                    <th> $ 29,300</th>
-                </tr>
-            </tfoot>
-        </table>
-
+        
 
     </div>
 </div>
