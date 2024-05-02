@@ -9,7 +9,7 @@ import { EventDTO } from './model/EventDTO';
 })
 export class EventService {
  
-  private url = "http://localhost:8080/api/events"
+  private url = "https://eventhub-spring-eventhub.azuremicroservices.io/api/events"
 
   constructor(private http : HttpClient) { 
   }

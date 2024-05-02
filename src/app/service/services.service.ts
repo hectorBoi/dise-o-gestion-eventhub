@@ -8,7 +8,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ServicesService {
-  url = "http://localhost:8080/api/services";
+  
+  url = "https://eventhub-spring-eventhub.azuremicroservices.io/api/services";
   findAllServices(): Observable<Service[]> {
     return this.http.get<Service[]>(this.url);
 
