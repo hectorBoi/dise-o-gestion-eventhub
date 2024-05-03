@@ -5,6 +5,7 @@ import { EventService } from '../event/event.service';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { SourceTextModule } from 'vm';
+import { ServicesService } from '../service/services.service';
 
 
 @Component({
@@ -17,14 +18,24 @@ import { SourceTextModule } from 'vm';
 export class HomeComponent  implements OnInit{
   todosEventos : Event[] = [];
   recientesEventos : Event[] = [];
-  constructor(private eventService : EventService) {}
+  constructor(private eventService : EventService, private servicesService : ServicesService) {}
   
   ngOnInit(): void {
     this.eventService.findAllEvents().subscribe(events => {
+      for (let event of events) {
+        this.calculateCost(event);
+      }
       this.todosEventos = events;
       this.recientesEventos = this.getRecentEvents(events);
+      
     });
-  
+  };
+  calculateCost(event: Event) {
+    this.servicesService.findServicesByServicesId(event.idServices).subscribe(services => {
+      for (let service of services) {
+        event.actualCost += service.price;
+      }
+    });
   };
   newEvent : Event = new Event("", new Date(), "", 0);
   createEvent() : void {

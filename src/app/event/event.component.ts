@@ -32,6 +32,9 @@ export class EventComponent  implements OnInit{
         console.log(this.thisEvent);
         this.servicesService.findServicesByServicesId(this.thisEvent.idServices).subscribe(newServices => {
           this.services = newServices;
+          for (let service of this.services) {
+            this.thisEvent.actualCost += service.price;
+          }
         });  
       }
     });
